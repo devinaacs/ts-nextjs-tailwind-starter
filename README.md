@@ -2,6 +2,8 @@
 
 A production-minded Next.js boilerplate for landing pages, portfolios, dashboards, backoffices, games, blogs, and product apps.
 
+Demo: <https://dev-nextjs-starter-kit.vercel.app/>
+
 ## Stack
 
 - Next.js App Router
@@ -57,7 +59,13 @@ src/
 
 ## Environment
 
-Copy `.env.example` when a project needs local environment values.
+Create a local environment file from the example when a project needs local values.
+
+```bash
+cp .env.example .env.local
+```
+
+The example file starts with:
 
 ```bash
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
