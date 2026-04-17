@@ -96,4 +96,25 @@ GitHub Actions runs `npm ci` and `npm run check` on pushes to `main` and pull re
 
 ## Deployment
 
-The starter is compatible with Vercel and any Node-compatible hosting that supports Next.js. Set `NEXT_PUBLIC_APP_URL` to the deployed origin for correct metadata URLs.
+The starter is compatible with Vercel and any Node-compatible hosting that supports Next.js.
+
+Deploy to Vercel from the project root:
+
+```bash
+npm run build
+npx vercel@latest deploy
+```
+
+For a production deployment, run:
+
+```bash
+npx vercel@latest deploy --prod
+```
+
+On the first deploy, the Vercel CLI will ask you to create or link a Vercel project. After deployment, set `NEXT_PUBLIC_APP_URL` to the deployed origin for correct metadata URLs:
+
+```bash
+npx vercel@latest env add NEXT_PUBLIC_APP_URL production
+```
+
+Then redeploy production so the new environment value is included.
