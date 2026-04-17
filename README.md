@@ -1,1 +1,91 @@
-# ts-nextjs-tailwind-starter
+# Next.js Starter Kit
+
+A production-minded Next.js boilerplate for landing pages, portfolios, dashboards, backoffices, games, blogs, and product apps.
+
+## Stack
+
+- Next.js App Router
+- React
+- TypeScript strict mode
+- Tailwind CSS v4
+- shadcn/ui with the full official component set
+- ESLint
+- Prettier with Tailwind class sorting
+- Vitest, React Testing Library, and jsdom
+- Zod-based environment validation
+- GitHub Actions CI
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open <http://localhost:3000>.
+
+## Scripts
+
+```bash
+npm run dev            # Start local development
+npm run build          # Create a production build
+npm run start          # Start the production server
+npm run lint           # Run ESLint
+npm run typecheck      # Run TypeScript without emitting files
+npm run format         # Format the project
+npm run format:check   # Check formatting
+npm run test           # Run unit and component tests
+npm run test:watch     # Run tests in watch mode
+npm run check          # Run the full local quality gate
+```
+
+## Project Structure
+
+```txt
+src/
+  app/                 App Router routes, layout, and route fallbacks
+  components/
+    layout/            Reusable page shell components
+    shared/            Shared providers and cross-app components
+    ui/                shadcn/ui component source
+  config/              Site and app-level configuration
+  hooks/               Shared React hooks
+  lib/                 Utilities and environment validation
+  test/                Test setup files
+  types/               Shared TypeScript types
+```
+
+## Environment
+
+Copy `.env.example` when a project needs local environment values.
+
+```bash
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
+
+Environment values are validated in `src/lib/env.ts`. Keep public browser-safe values prefixed with `NEXT_PUBLIC_`.
+
+## UI Components
+
+The full shadcn/ui component set is installed under `src/components/ui`. These are source files owned by the project, so you can edit them to fit the app instead of treating them as a locked dependency.
+
+The app shell wraps routes with:
+
+- `next-themes`
+- shadcn `TooltipProvider`
+- shadcn/Sonner `Toaster`
+
+## Conventions
+
+- Use `@/` imports for files inside `src`.
+- Keep generic reusable UI in `src/components/ui`, layout shell pieces in `src/components/layout`, and app-specific shared pieces in `src/components/shared`.
+- Keep validated configuration in `src/config` and `src/lib/env.ts`.
+- Run `npm run check` before merging or deploying.
+
+## CI
+
+GitHub Actions runs `npm ci` and `npm run check` on pushes to `main` and pull requests.
+
+## Deployment
+
+The starter is compatible with Vercel and any Node-compatible hosting that supports Next.js. Set `NEXT_PUBLIC_APP_URL` to the deployed origin for correct metadata URLs.

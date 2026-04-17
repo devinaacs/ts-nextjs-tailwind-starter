@@ -1,65 +1,83 @@
-import Image from "next/image";
+import {
+  ArrowRightIcon,
+  BookOpenIcon,
+  Code2Icon,
+  GitBranchIcon,
+  TerminalIcon,
+} from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
+
+const installCommand =
+  "git clone https://github.com/devinaacs/ts-nextjs-tailwind-starter my-app && cd my-app && npm install";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen overflow-hidden bg-[#050505] px-5 py-8 text-[#f5f0e8] sm:px-8 lg:px-12">
+      <section className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-7xl items-center justify-center">
+        <div className="hero-frame relative w-full overflow-hidden border border-[#d8ad78]/70 bg-[#070707] shadow-2xl shadow-black">
+          <div className="hero-grid absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.055)_1px,transparent_1px)] bg-[size:44px_44px]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.35),rgba(5,5,5,0.78))]" />
+
+          <span className="hero-corner absolute top-0 left-0 h-16 w-16 border-t-2 border-l-2 border-[#d8ad78]" />
+          <span className="hero-corner absolute top-0 right-0 h-16 w-16 border-t-2 border-r-2 border-[#d8ad78]" />
+          <span className="hero-corner absolute bottom-0 left-0 h-16 w-16 border-b-2 border-l-2 border-[#d8ad78]" />
+          <span className="hero-corner absolute right-0 bottom-0 h-16 w-16 border-r-2 border-b-2 border-[#d8ad78]" />
+
+          <div className="relative mx-auto flex min-h-[560px] max-w-5xl flex-col items-center justify-center px-6 py-16 text-center sm:px-10 lg:px-16">
+            <div className="hero-fade-up mb-8 inline-flex items-center gap-2 border border-[#d8ad78]/30 bg-black/35 px-5 py-3 text-xs font-bold tracking-[0.28em] text-[#d8ad78] uppercase">
+              <Code2Icon className="size-4" />
+              Open source
+            </div>
+
+            <div className="hero-fade-up hero-delay-100 space-y-5">
+              <p className="text-xs font-semibold tracking-[0.24em] text-[#d8ad78]/80 uppercase sm:text-sm">
+                {siteConfig.name}
+              </p>
+              <h1 className="mx-auto max-w-6xl font-serif text-[3.5rem] leading-[0.94] font-black tracking-normal text-balance sm:text-[4.75rem] lg:text-[5.25rem] xl:text-[5.625rem]">
+                Start building today
+              </h1>
+              <p className="mx-auto max-w-3xl text-base leading-7 text-[#aaa39b] sm:text-lg sm:leading-8">
+                Clone the repository, install dependencies, and start shipping.
+                It&apos;s that simple. No configuration, no hassle.
+              </p>
+            </div>
+
+            <div className="hero-fade-up hero-delay-200 mt-8 flex w-full max-w-xl flex-col justify-center gap-4 sm:flex-row">
+              <Button
+                asChild
+                className="h-14 rounded-none bg-[#d8ad78] px-8 text-base font-bold text-black transition-transform hover:-translate-y-0.5 hover:bg-[#e8c392]"
+              >
+                <a href={siteConfig.links.github}>
+                  <GitBranchIcon className="size-5" />
+                  View on GitHub
+                </a>
+              </Button>
+              <Button
+                asChild
+                className="h-14 rounded-none border-[#f5f0e8]/25 bg-black/20 px-8 text-base font-bold text-[#f5f0e8] transition-transform hover:-translate-y-0.5 hover:bg-[#f5f0e8]/10 hover:text-[#f5f0e8]"
+                variant="outline"
+              >
+                <a href={siteConfig.links.docs}>
+                  <BookOpenIcon className="size-5" />
+                  Documentation
+                  <ArrowRightIcon className="size-5" />
+                </a>
+              </Button>
+            </div>
+
+            <div className="hero-fade-up hero-delay-300 mt-12 h-px w-full max-w-4xl bg-[#f5f0e8]/15" />
+
+            <div className="hero-fade-up hero-delay-400 mt-8 flex w-full max-w-4xl items-start gap-4 border border-[#d8ad78]/25 bg-black/45 px-4 py-4 text-left shadow-xl shadow-black/40 sm:px-5">
+              <TerminalIcon className="mt-0.5 size-5 shrink-0 text-[#d8ad78]" />
+              <code className="min-w-0 font-mono text-xs leading-6 [overflow-wrap:anywhere] whitespace-normal text-[#d8ad78] select-text sm:text-sm lg:text-base">
+                {installCommand}
+              </code>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
