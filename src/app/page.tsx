@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 
 const installCommand =
-  "git clone https://github.com/devinaacs/ts-nextjs-tailwind-starter my-app && cd my-app && npm install";
+  "git clone https://github.com/devinaacs/next-starter-kit.git my-app && cd my-app && cp .env.example .env.local && npm install";
 
 export default function Home() {
   return (

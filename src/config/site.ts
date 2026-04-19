@@ -15,7 +15,7 @@ export const siteConfig = {
   ] satisfies NavItem[],
   links: {
     docs: "https://nextjs.org/docs",
-    github: "https://github.com/devinaacs/ts-nextjs-tailwind-starter",
+    github: "https://github.com/devinaacs/next-starter-kit",
     shadcn: "https://ui.shadcn.com/",
   },
 };

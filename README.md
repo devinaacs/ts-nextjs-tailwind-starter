@@ -20,6 +20,9 @@ Demo: <https://dev-nextjs-starter-kit.vercel.app/>
 ## Getting Started
 
 ```bash
+git clone https://github.com/devinaacs/next-starter-kit.git my-app
+cd my-app
+cp .env.example .env.local
 npm install
 npm run dev
 ```
@@ -59,7 +62,7 @@ src/
 
 ## Environment
 
-Create a local environment file from the example when a project needs local values.
+Create a local environment file from the example when a project needs local values:
 
 ```bash
 cp .env.example .env.local
@@ -85,6 +88,7 @@ The app shell wraps routes with:
 
 ## Conventions
 
+- Use Node.js 22. The repo includes `.nvmrc` for Node version managers.
 - Use `@/` imports for files inside `src`.
 - Keep generic reusable UI in `src/components/ui`, layout shell pieces in `src/components/layout`, and app-specific shared pieces in `src/components/shared`.
 - Keep validated configuration in `src/config` and `src/lib/env.ts`.
